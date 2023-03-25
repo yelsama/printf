@@ -1,28 +1,82 @@
 #include "main.h"
 
 /**
+ *  getdigits - count number of digints wihin number
+ * @num: number to count its digits
+ * Return: number of digints in an i
+ */
+int	getdigits(int num)
+{
+	int	d;
+
+	d = 0;
+	if (num == -2147483648)
+		return (10);
+	if (num < 0)
+	{
+		num *= -1;
+		return (getdigits(num) + 1);
+	}
+	if (num >= 0 && num < 10)
+		return (0);
+	if (num == 10)
+		return (1);
+	while (num != 0)
+	{
+		num /= 10;
+		d++;
+	}
+	return (d - 1);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
+
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n == 0)
+		write(fd, "0", 1);
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n < 10)
+	{
+		c = n + '0';
+		write(fd, &c, 1);
+	}
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+}
+
+/**
  * on_action - check the code
  * @i: index of where thie printing is
  * @argdefiner: flag for type to print
  * @argu: argument of va list for the flag
  * Return: number of printed chars
  */
-static int	on_action(int *i, char *argdefiner, va_list argu)
+int	on_action(int *i, char *argdefiner, va_list argu)
 {
 	void	*p;
-	int		n;
+	int		n, m;
 	char	c;
 
 	n = 0;
 	if (argdefiner[*i] == 's')
-	{
+	{	
 		p = (char *)va_arg(argu, int *);
 		if (!p)
 		{
 			_printf("(null)");
 			return (5);
 		}
-		_puts(p);
+		_printf(p);
 		n = _strlen(p) - 1;
 	}
 	else if (argdefiner[*i] == 'c')
@@ -32,6 +86,12 @@ static int	on_action(int *i, char *argdefiner, va_list argu)
 	}
 	else if (argdefiner[*i] == '%')
 		write(1, "%", 1);
+	else if (argdefiner[*i] == 'd' || argdefiner[*i] == 'i')
+	{
+		m = va_arg(argu, int);
+		ft_putnbr_fd(m, 1);
+		n = getdigits(m);
+	}
 	return (n);
 }
 
@@ -49,7 +109,7 @@ int	_printf(const char *format, ...)
 	int		n;
 
 	p = (char *)format;
-	cases = "cs%";
+	cases = "csdi%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
