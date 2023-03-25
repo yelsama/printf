@@ -36,8 +36,9 @@ int main(void)
     printf("Address:[%p]\n", addr);
    len = _printf("Percent:[%%]\n");
    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
+   printf("Cmpare mine: %d    original: %d\n", len, len2);
+    // _printf("Len:[%d]\n", len);
+    // printf("Len:[%d]\n", len2);
    n1 = _printf("Unknown:[%r]\n");
     n2 = printf("Unknown:[%r]\n");
    printf("Cmpare mine: %d    original: %d\n", n1, n2);

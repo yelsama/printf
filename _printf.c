@@ -7,14 +7,14 @@
  * @argu: argument of va list for the flag
  * Return: number of printed chars
  */
-int	on_action(int *i, char *argdefiner, va_list argu)
+int	on_action(int i, char *argdefiner, va_list argu)
 {
 	void	*p;
 	int		n;
 	char	c;
 
 	n = 0;
-	if (argdefiner[*i] == 's')
+	if (argdefiner[i] == 's')
 	{
 		p = (char *)va_arg(argu, int *);
 		if (!p)
@@ -22,12 +22,12 @@ int	on_action(int *i, char *argdefiner, va_list argu)
 		else
 			n = _printf(p) - 1;
 	}
-	else if (argdefiner[*i] == 'c')
+	else if (argdefiner[i] == 'c')
 	{
 		c = va_arg(argu, int);
 		write(1, &c, 1);
 	}
-	else if (argdefiner[*i] == '%')
+	else if (argdefiner[i] == '%')
 		write(1, "%", 1);
 	return (n);
 }
@@ -55,7 +55,7 @@ int	_printf(const char *format, ...)
 		if (p[i] == '%' && _strchr(cases, p[i + 1]))
 		{
 			i++;
-			n += on_action(&i, p, atached_arg);
+			n += on_action(i, p, atached_arg);
 		}
 		else
 			write(1, &p[i], 1);
