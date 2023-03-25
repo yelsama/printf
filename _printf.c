@@ -95,8 +95,8 @@ static int	on_action(int *i, char *argdefiner, va_list argu)
 		c = va_arg(argu, int);
 		write(1, &c, 1);
 	}
-	// else
-	// 	n = on_action2(i, argdefiner, argu);
+	else
+		n = on_action2(i, argdefiner, argu);
 	return (n);
 }
 
