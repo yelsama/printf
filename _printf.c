@@ -10,7 +10,7 @@
 int	on_action(int *i, char *argdefiner, va_list argu)
 {
 	void	*p;
-	int		n, m;
+	int		n;
 	char	c;
 
 	n = 0;
@@ -49,7 +49,7 @@ int	_printf(const char *format, ...)
 	int		n;
 
 	p = (char *)format;
-	cases = "csdi%";
+	cases = "cs%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
