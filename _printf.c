@@ -18,17 +18,17 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	{
 		p = (char *)va_arg(argu, int *);
 		if (!p)
-			n = _printf("(null)") - 1;
+			n = _printf("(null)");
 		else
-			n = _printf(p) - 1;
+			n = _printf(p);
 	}
 	else if (argdefiner[i] == 'c')
 	{
 		c = va_arg(argu, int);
-		write(1, &c, 1);
+		n = write(1, &c, 1);
 	}
 	else if (argdefiner[i] == '%')
-		write(1, "%", 1);
+		n = write(1, "%", 1);
 	return (n);
 }
 
@@ -50,7 +50,7 @@ int	_printf(const char *format, ...)
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
-	while (p[++i] && ++n)
+	while (p[++i])
 	{
 		if (p[i] == '%' && _strchr(cases, p[i + 1]))
 		{
@@ -58,12 +58,11 @@ int	_printf(const char *format, ...)
 			n += on_action(i, p, atached_arg);
 		}
 		else
+		{
 			write(1, &p[i], 1);
+			n++;
+		}
 	}
 	va_end(atached_arg);
-	if (i > 0)
-		i--;
-	if (p[i] == '%')
-		return (-1);
 	return (n);
 }
