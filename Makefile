@@ -1,6 +1,6 @@
 NAME = _printf
 
-SOURSES = _printf.c _puts.c _strchr.c _strlen.c main.c \
+SOURSES = _printf.c _puts.c _strchr.c _strlen.c my_main.c \
 
 OBJECTS = $(SOURSES:%.c=%.o)
 
