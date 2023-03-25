@@ -7,7 +7,9 @@ int main(void)
     int len2, n1, n2;
     unsigned int ui;
     void *addr;
+    char *s1;
 
+    s1 = NULL;
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
@@ -24,8 +26,8 @@ int main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
-    n1 = _printf("String:[%s]\n", "I am a string !");
-    n2 = printf("String:[%s]\n", "I am a string !");
+    n1 = _printf("String:[%s]\n", s1);
+    n2 = printf("String:[%s]\n", s1);
    printf("Cmpare mine: %d    original: %d", n1, n2);
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
