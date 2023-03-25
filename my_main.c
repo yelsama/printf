@@ -26,9 +26,12 @@ int main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
-    n1 = _printf("String:[%s]\n", s1);
-    n2 = printf("String:[%s]\n", s1);
-   printf("Cmpare mine: %d    original: %d", n1, n2);
+    n1 = _printf("%s", s1);
+    n2 = printf("%s", s1);
+   printf("Cmpare mine: %d    original: %d\n", n1, n2);
+    n1 = _printf("");
+    n2 = printf("");
+   printf("Cmpare mine: %d    original: %d\n", n1, n2);
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
    len = _printf("Percent:[%%]\n");
@@ -37,7 +40,7 @@ int main(void)
     printf("Len:[%d]\n", len2);
    n1 = _printf("Unknown:[%r]\n");
     n2 = printf("Unknown:[%r]\n");
-   printf("Cmpare mine: %d    original: %d", n1, n2);
+   printf("Cmpare mine: %d    original: %d\n", n1, n2);
     return (0);
 }
 
