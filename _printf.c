@@ -18,11 +18,9 @@ int	on_action(int *i, char *argdefiner, va_list argu)
 	{
 		p = (char *)va_arg(argu, int *);
 		if (!p)
-		{
-			_printf("(null)");
-			return (5);
-		}
-		n = _printf(p) - 1;
+			n = _printf("(null)") - 1;
+		else
+			n = _printf(p) - 1;
 	}
 	else if (argdefiner[*i] == 'c')
 	{
