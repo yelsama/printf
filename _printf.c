@@ -30,6 +30,8 @@ static int	on_action(int *i, char *argdefiner, va_list argu)
 		c = va_arg(argu, int);
 		write(1, &c, 1);
 	}
+	else if (argdefiner[*i] == '%')
+		write(1, "%", 1);
 	return (n);
 }
 
@@ -47,7 +49,7 @@ int	_printf(const char *format, ...)
 	int		n;
 
 	p = (char *)format;
-	cases = "cspu%";
+	cases = "cs%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
