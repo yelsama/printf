@@ -22,7 +22,7 @@ int	on_action(int *i, char *argdefiner, va_list argu)
 			_printf("(null)");
 			return (5);
 		}
-		n = _printf(p);
+		n = _printf(p) - 1;
 	}
 	else if (argdefiner[*i] == 'c')
 	{
