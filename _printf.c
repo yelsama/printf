@@ -27,10 +27,10 @@ int	on_action(int *i, char *argdefiner, va_list argu)
 	else if (argdefiner[*i] == 'c')
 	{
 		c = va_arg(argu, int);
-		n = write(1, &c, 1);
+		write(1, &c, 1);
 	}
 	else if (argdefiner[*i] == '%')
-		n = write(1, "%", 1);
+		write(1, "%", 1);
 	return (n);
 }
 
