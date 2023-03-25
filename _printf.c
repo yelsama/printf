@@ -61,5 +61,7 @@ int	_printf(const char *format, ...)
 			write(1, &p[i], 1);
 	}
 	va_end(atached_arg);
+	if (p[--i] == '%')
+		return (-1);
 	return (n);
 }
