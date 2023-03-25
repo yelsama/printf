@@ -22,16 +22,15 @@ int	on_action(int *i, char *argdefiner, va_list argu)
 			_printf("(null)");
 			return (5);
 		}
-		_printf(p);
-		n = _strlen(p) - 1;
+		n = _printf(p);
 	}
 	else if (argdefiner[*i] == 'c')
 	{
 		c = va_arg(argu, int);
-		write(1, &c, 1);
+		n = write(1, &c, 1);
 	}
 	else if (argdefiner[*i] == '%')
-		write(1, "%", 1);
+		n = write(1, "%", 1);
 	return (n);
 }
 
