@@ -55,13 +55,13 @@ int	_printf(const char *format, ...)
 	va_start(atached_arg, format);
 	while (p[++i] && ++n)
 	{
-		if (p[i] == '%' && _strchr(cases, p[i + 1]))
+		if (p[i] != '%')
+			write(1, &p[i], 1);
+		else if (p[i] == '%' && _strchr(cases, p[i + 1]))
 		{
 			i++;
 			n += on_action(&i, p, atached_arg);
 		}
-		else
-			write(1, &p[i], 1);
 	}
 	va_end(atached_arg);
 	return (n);
