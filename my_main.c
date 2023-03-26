@@ -30,8 +30,8 @@ int main(void)
     n2 = printf("%s", s1);
    printf("Cmpare mine: %d    original: %d\n", n1, n2);
     n1 = _printf("%");
-    n2 = printf("%");
-   printf("Cmpare mine: %d    original: %d\n", n1, n2);
+//     n2 = printf("%");
+//    printf("Cmpare mine: %d    original: %d\n", n1, n2);
     // _printf("Address:[%p]\n", addr);
     // printf("Address:[%p]\n", addr);
    len = _printf("Percent:[%%]\n");
