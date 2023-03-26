@@ -1,6 +1,35 @@
 #include "main.h"
 
 /**
+ *  getdigits - count number of digints wihin number
+ * @num: number to count its digits
+ * Return: number of digints in an i
+ */
+int	getdigits(int num)
+{
+	int	d;
+
+	d = 0;
+	if (num == -2147483648)
+		return (10);
+	if (num < 0)
+	{
+		num *= -1;
+		return (getdigits(num) + 1);
+	}
+	if (num >= 0 && num < 10)
+		return (0);
+	if (num == 10)
+		return (1);
+	while (num != 0)
+	{
+		num /= 10;
+		d++;
+	}
+	return (d);
+}
+
+/**
  * on_action - check the code
  * @i: index of where thie printing is
  * @argdefiner: flag for type to print
@@ -10,7 +39,7 @@
 int	on_action(int i, char *argdefiner, va_list argu)
 {
 	void	*p;
-	int		n;
+	int		n, m;
 	char	c;
 
 	n = 0;
@@ -26,6 +55,12 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	{
 		c = va_arg(argu, int);
 		n = write(1, &c, 1);
+	}
+	else if (argdefiner[i] == 'd' || argdefiner[i] == 'i')
+	{
+		m = va_arg(argu, int);
+		ft_putnbr_fd(m, 1);
+		n = getdigits(m);
 	}
 	else if (argdefiner[i] == '%')
 		n = write(1, "%", 1);
