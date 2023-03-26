@@ -1,6 +1,36 @@
 #include "main.h"
 
 /**
+ *  _putnbr_fd - count number of digints wihin number
+ * @n: number to write
+ * @fd: file descriptor
+ */
+void	_putnbr_fd(int n, int fd)
+{
+	char	c;
+
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n == 0)
+		write(fd, "0", 1);
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		_putnbr_fd(-n, fd);
+	}
+	else if (n < 10)
+	{
+		c = n + '0';
+		write(fd, &c, 1);
+	}
+	else
+	{
+		_putnbr_fd(n / 10, fd);
+		_putnbr_fd(n % 10, fd);
+	}
+}
+
+/**
  *  getdigits - count number of digints wihin number
  * @num: number to count its digits
  * Return: number of digints in an i
@@ -59,7 +89,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'd' || argdefiner[i] == 'i')
 	{
 		m = va_arg(argu, int);
-		ft_putnbr_fd(m, 1);
+		_putnbr_fd(m, 1);
 		n = getdigits(m);
 	}
 	else if (argdefiner[i] == '%')
@@ -81,7 +111,7 @@ int	_printf(const char *format, ...)
 	int		n;
 
 	p = (char *)format;
-	cases = "cs%";
+	cases = "csdi%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
