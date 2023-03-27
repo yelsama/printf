@@ -1,40 +1,6 @@
 #include "main.h"
 
 /**
- *  _putnbr_fd - count number of digints wihin number
- * @n: number to write
- * @fd: file descriptor
- * Return: number of printed
- */
-int	_putnbr_fd(int n, int fd)
-{
-	char	c;
-	int		p;
-
-	p = 0;
-	if (n == -2147483648)
-		p = write(fd, "-2147483648", 11);
-	else if (n == 0)
-		p = write(fd, "0", 1);
-	else if (n < 0)
-	{
-		p = write(fd, "-", 1);
-		p += _putnbr_fd(-n, fd);
-	}
-	else if (n < 10)
-	{
-		c = n + '0';
-		p = write(fd, &c, 1);
-	}
-	else
-	{
-		p += _putnbr_fd(n / 10, fd);
-		p += _putnbr_fd(n % 10, fd);
-	}
-	return (p);
-}
-
-/**
  * on_action - check the code
  * @i: index of where thie printing is
  * @argdefiner: flag for type to print
@@ -70,6 +36,12 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	}
 	else if (argdefiner[i] == '%')
 		n = write(1, "%", 1);
+	else if (argdefiner[i] == 'x')
+		_printhex(va_arg(argu, int), "0123456789abcdef", &n);
+	else if (argdefiner[i] == 'X')
+		_printhex(va_arg(argu, int), "0123456789ABCDEF", &n);
+	else if (argdefiner[i] == 'u')
+		_putunsinint_fd(va_arg(argu, unsigned int), 1, &n);
 	return (n);
 }
 
@@ -89,7 +61,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdi%";
+	cases = "csdixX%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
