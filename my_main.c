@@ -26,8 +26,8 @@ int main(void)
     // printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
-    n1 = _printf("%s", s1);
-    n2 = printf("%s", s1);
+    n1 = _printf("%s\n", s1);
+    n2 = printf("%s\n", s1);
    printf("Cmpare mine: %d    original: %d\n", n1, n2);
     n1 = _printf("s%");
     n2 = printf("s%");
