@@ -66,8 +66,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'd' || argdefiner[i] == 'i')
 	{
 		m = va_arg(argu, int);
-		_putnbr_fd(m, 1);
-		n = getdigits(m);
+		n = _putnbr_fd(m, 1);
 	}
 	else if (argdefiner[i] == '%')
 		n = write(1, "%", 1);
