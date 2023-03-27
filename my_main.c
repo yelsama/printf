@@ -25,8 +25,9 @@ int main(void)
     printf("Unsigned:[%u]\n", ui);
     _printf("Unsigned octal:[%o]\n", ui);
     printf("Unsigned octal:[%o]\n", ui);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    n1 = _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    n2 = printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+   printf("Cmpare mine: %d    original: %d\n", n1, n2);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     n1 = _printf("%s\n", s1);
