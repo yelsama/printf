@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * _putunsinint_fd - check the code
  * @u: unsigned int
