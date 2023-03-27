@@ -4,59 +4,34 @@
  *  _putnbr_fd - count number of digints wihin number
  * @n: number to write
  * @fd: file descriptor
+ * Return: number of printed
  */
-void	_putnbr_fd(int n, int fd)
+int	_putnbr_fd(int n, int fd)
 {
 	char	c;
+	int		p;
 
+	p = 0;
 	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
+		p = write(fd, "-2147483648", 11);
 	else if (n == 0)
-		write(fd, "0", 1);
+		p = write(fd, "0", 1);
 	else if (n < 0)
 	{
-		write(fd, "-", 1);
-		_putnbr_fd(-n, fd);
+		p = write(fd, "-", 1);
+		p += _putnbr_fd(-n, fd);
 	}
 	else if (n < 10)
 	{
 		c = n + '0';
-		write(fd, &c, 1);
+		p = write(fd, &c, 1);
 	}
 	else
 	{
-		_putnbr_fd(n / 10, fd);
-		_putnbr_fd(n % 10, fd);
+		p += p_putnbr_fd(n / 10, fd);
+		p += _putnbr_fd(n % 10, fd);
 	}
-}
-
-/**
- *  getdigits - count number of digints wihin number
- * @num: number to count its digits
- * Return: number of digints in an i
- */
-int	getdigits(int num)
-{
-	int	d;
-
-	d = 0;
-	if (num == -2147483648)
-		return (10);
-	if (num < 0)
-	{
-		num *= -1;
-		return (getdigits(num) + 1);
-	}
-	if (num >= 0 && num < 10)
-		return (0);
-	if (num == 10)
-		return (1);
-	while (num != 0)
-	{
-		num /= 10;
-		d++;
-	}
-	return (d);
+	return (p);
 }
 
 /**
