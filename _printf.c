@@ -86,8 +86,6 @@ int	_printf(const char *format, ...)
 	int		i;
 	int		n;
 
-	// if (!format)
-	// 	return (-1);
 	p = (char *)format;
 	cases = "csdi%";
 	i = -1;
