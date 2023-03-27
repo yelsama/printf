@@ -3,8 +3,8 @@
 #include <limits.h>
 int main(void)
 {
-    int n1, n2;
-    char s;
+    // int n1, n2;
+    // char s;
 
     int len;
     int len2, n1, n2;
