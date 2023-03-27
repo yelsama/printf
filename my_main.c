@@ -3,10 +3,10 @@
 #include <limits.h>
 int main(void)
 {
-    int n1, n2;
-    n1 = _printf("");
-    n2 = printf("");
-   printf("\nCmpare mine: %d    original: %d\n", n1, n2);
+    // int n1;
+    // _printf("");
+    printf("");
+    // printf("\nCmpare mine: %d    original: %d\n", n1, n2);
 
     // int len;
     // int len2, n1, n2;
