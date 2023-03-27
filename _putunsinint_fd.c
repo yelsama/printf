@@ -5,7 +5,7 @@
  * _putunsinint_fd - check the code
  * @u: unsigned int
  * @fd: file descriptor to use with write
- * @n: number of printed arguments 
+ * @n: number of printed arguments
  */
 void	_putunsinint_fd(unsigned int u, int fd, int *n)
 {
