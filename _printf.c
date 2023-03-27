@@ -37,11 +37,11 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == '%')
 		n = write(1, "%", 1);
 	else if (argdefiner[i] == 'x')
-		_printhex(va_arg(argu, int), "0123456789abcdef", &n);
+		n = _printhex(va_arg(argu, int), "0123456789abcdef");
 	else if (argdefiner[i] == 'X')
-		_printhex(va_arg(argu, int), "0123456789ABCDEF", &n);
+		n = _printhex(va_arg(argu, int), "0123456789ABCDEF");
 	else if (argdefiner[i] == 'u')
-		_putunsinint_fd(va_arg(argu, unsigned int), 1, &n);
+		n = _putunsinint_fd(va_arg(argu, unsigned int), 1);
 	return (n);
 }
 

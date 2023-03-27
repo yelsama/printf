@@ -1,17 +1,18 @@
-# include "main.h"
+#include "main.h"
 
 /**
  * _printhex - check the code
  * @val: the value to be printed
  * @base: the string of 16 digits elemnts
- * @n: number of digits printed
+ * Return: number of digits printed
  */
-void	_printhex(unsigned int val, char *base, int *n)
+int	_printhex(unsigned int val, char *base)
 {
+	int	n;
+
+	n = 0;
 	if (val > 15)
-	{
-		*n = *n + 1;
-		_printhex(val / 16, base, n);
-	}
-	write(1, &base[val % 16], 1);
+		n += _printhex(val / 16, base);
+	n = write(1, &base[val % 16], 1);
+	return (n);
 }

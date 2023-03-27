@@ -5,15 +5,16 @@
  * _putunsinint_fd - check the code
  * @u: unsigned int
  * @fd: file descriptor to use with write
- * @n: number of printed arguments
+ * Return: nubmer of printed chars
  */
-void	_putunsinint_fd(unsigned int u, int fd, int *n)
+int	_putunsinint_fd(unsigned int u, int fd)
 {
+	int	n;
+
+	n = 0;
 	if (u > 9)
-	{
-		*n += 1;
-		_putunsinint_fd(u / 10, fd, n);
-	}
+		n += _putunsinint_fd(u / 10, fd);
 	u = (u % 10) + 48;
-	write(fd, &u, 1);
+	n = write(fd, &u, 1);
+	return (n);
 }
