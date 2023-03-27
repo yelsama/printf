@@ -56,7 +56,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 		if (!p)
 			n = _printf("(null)");
 		else
-			n = _printf(p);
+			n = _puts(p);
 	}
 	else if (argdefiner[i] == 'c')
 	{

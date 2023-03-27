@@ -4,9 +4,12 @@
  * _puts - check the code
  * @str: a string to be printed
  */
-void	_puts(char *str)
+int	_puts(char *str)
 {
+	int	n;
+
+	n = 0;
 	while (str && *str)
-		write(1, str++, 1);
-	write(1, "\n", 1);
+		n += write(1, str++, 1);
+	return (n);
 }
