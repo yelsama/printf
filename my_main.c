@@ -6,7 +6,7 @@ int main(void)
     int n1, n2;
     char s;
 
-    n1 = _printf();
+    n1 = _printf("");
     n2 = printf();
    printf("Cmpare mine: %d    original: %d\n", n1, n2);
 
