@@ -4,8 +4,8 @@
 int main(void)
 {
     // int n1;
-    // _printf("");
-    printf("");
+    _printf("");
+    // printf("");
     // printf("\nCmpare mine: %d    original: %d\n", n1, n2);
 
     // int len;
