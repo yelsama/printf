@@ -13,6 +13,6 @@ int	_printhex(unsigned int val, char *base)
 	n = 0;
 	if (val > 15)
 		n += _printhex(val / 16, base);
-	n = write(1, &base[val % 16], 1);
+	n += write(1, &base[val % 16], 1);
 	return (n);
 }

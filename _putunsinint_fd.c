@@ -15,6 +15,6 @@ int	_putunsinint_fd(unsigned int u, int fd)
 	if (u > 9)
 		n += _putunsinint_fd(u / 10, fd);
 	u = (u % 10) + 48;
-	n = write(fd, &u, 1);
+	n += write(fd, &u, 1);
 	return (n);
 }
