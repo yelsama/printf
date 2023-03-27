@@ -121,8 +121,6 @@ int	_printf(const char *format, ...)
 		{
 			i++;
 			n += on_action(i, p, atached_arg);
-			if (!p[i])
-				return (-1);
 		}
 		else
 		{
