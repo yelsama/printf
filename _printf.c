@@ -61,7 +61,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdixX%";
+	cases = "csdiuxX%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
