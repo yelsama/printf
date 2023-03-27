@@ -120,9 +120,9 @@ int	_printf(const char *format, ...)
 		if (p[i] == '%' && _strchr(cases, p[i + 1]))
 		{
 			i++;
+			n += on_action(i, p, atached_arg);
 			if (!p[i])
 				return (-1);
-			n += on_action(i, p, atached_arg);
 		}
 		else
 		{
