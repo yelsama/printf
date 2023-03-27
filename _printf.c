@@ -28,7 +28,7 @@ int	_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		p += p_putnbr_fd(n / 10, fd);
+		p += _putnbr_fd(n / 10, fd);
 		p += _putnbr_fd(n % 10, fd);
 	}
 	return (p);
