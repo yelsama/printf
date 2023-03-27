@@ -73,7 +73,8 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	char	c;
 
 	n = 0;
-	c = 0;
+	if (!argu)
+		return (1);
 	if (argdefiner[i] == 's')
 	{
 		p = (char *)va_arg(argu, int *);
