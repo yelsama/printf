@@ -12,6 +12,6 @@ void	_printhex(unsigned int val, char *base, int *n)
 	{
 		*n = *n + 1;
 		_printhex(val / 16, base, n);
-	}	
+	}
 	write(1, &base[val % 16], 1);
 }

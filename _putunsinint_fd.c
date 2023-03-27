@@ -2,7 +2,6 @@
 
 
 /**
- * 
  * _putunsinint_fd - check the code
  * @u: unsigned int
  * @fd: file descriptor to use with write
