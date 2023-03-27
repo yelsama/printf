@@ -6,8 +6,8 @@ int main(void)
     int n1, n2;
     char s;
 
-    n1 = _printf("%c", s);
-    n2 = printf("%c", s);
+    n1 = _printf("%cS", s);
+    n2 = printf("%cS", s);
    printf("Cmpare mine: %d    original: %d\n", n1, n2);
 
     // int len;
