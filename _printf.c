@@ -72,8 +72,10 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	char	c;
 
 	n = 0;
-	if (!argu)
+	if (!argu && argdefiner[i] != 'r')
 		return (1);
+	if (!argu)
+		return (_puts("%r"));
 	if (argdefiner[i] == 's')
 	{
 		p = (char *)va_arg(argu, int *);
@@ -125,7 +127,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdibuoxXpR%";
+	cases = "csdibuoxXpRr%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
