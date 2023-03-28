@@ -2,17 +2,14 @@
 #include <stdio.h>
 #include <limits.h>
 int main(void)
-{
-    int n1, n2;
+{  
     // char s;
 
     int len;
     int len2, n1, n2;
     unsigned int ui;
     void *addr;
-    char *s1;
-
-    s1 = NULL;
+  
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
