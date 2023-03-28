@@ -72,7 +72,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	char	c;
 
 	n = 0;
-	if (!argu && argdefiner[i] != 'r')
+	if (!argu)
 		return (1);
 	if (argdefiner[i] == 's')
 	{
