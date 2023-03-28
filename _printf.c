@@ -1,6 +1,22 @@
 #include "main.h"
 
 /**
+ * get_print_pointer - check the code
+ * @p: pointer value
+ * Return: number of printed chars
+ */
+int	get_print_pointer(unsigned long p)
+{
+	int	n;
+
+	if (p == 0)
+		return (_puts("(nil)"));
+	n = _puts("0x");
+	n += _print_pointer(p, "0123456789abcdef");
+	return (n);
+}
+
+/**
  * on_action - check the code
  * @i: index of where thie printing is
  * @argdefiner: flag for type to print
@@ -46,6 +62,8 @@ int	on_action(int i, char *argdefiner, va_list argu)
 		n = _print_octal(va_arg(argu, int));
 	else if (argdefiner[i] == 'b')
 		n = _print_binary(va_arg(argu, int));
+	else if (argdefiner[i] == 'p')
+		n = get_print_pointer((unsigned long)va_arg(argu, void *));
 	return (n);
 }
 
@@ -65,7 +83,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdibuoxX%";
+	cases = "csdibuoxXp%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
