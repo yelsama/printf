@@ -1,3 +1,5 @@
+#include "main.h"
+
 int print_rot13string(char *str)
 {
 	char x;

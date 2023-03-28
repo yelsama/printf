@@ -64,6 +64,14 @@ int	on_action(int i, char *argdefiner, va_list argu)
 		n = _print_binary(va_arg(argu, int));
 	else if (argdefiner[i] == 'p')
 		n = get_print_pointer((unsigned long)va_arg(argu, void *));
+	else if (argdefiner[i] == 'R')
+                {
+		    p = (char *)va_arg(argu, int *);
+                    if (!p)
+                        n = _puts("(null)");
+                    else
+                        n = print_rot13str(p);
+		}
 	return (n);
 }
 
