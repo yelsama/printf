@@ -39,22 +39,6 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 		else
 			n = print_rot13string(p);
 	}
-	// else if (argdefiner[i] == 'r')
-	// {
-	// 	return (0);
-	// 	p = (char *)va_arg(argu, int *);
-	// 	if (!argu && p)
-	// 		return (0);
-	// 	if (!p)
-	// 	{
-	// 		n = _puts("(null)");
-	// 	}
-	// 	else
-	// 	{
-	// 		rev_string(p);
-	// 		n = _puts(p);
-	// 	}
-	// }
 	return (n);
 }
 
@@ -74,9 +58,24 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	n = 0;
 	if (!argu && argdefiner[i] != 'r')
 		return (1);
-	printf("got to this\n");
+	if (argdefiner[i] == 'r')
+	{
+		return (0);
+		p = (char *)va_arg(argu, int *);
+		if (!argu && p)
+			return (0);
+		if (!p)
+		{
+			n = _puts("(null)");
+		}
+		else
+		{
+			rev_string(p);
+			n = _puts(p);
+		}
+	}
 	return (2);
-	if (!argu)
+	else if (!argu)
 		return (_puts("%r"));
 	if (argdefiner[i] == 's')
 	{
