@@ -43,6 +43,7 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	{
 		if (!argu)
 			return (_puts("%r"));
+		printf("got here\n");
 		p = (char *)va_arg(argu, int *);
 		if (!p)
 			n = _puts("(null)");
