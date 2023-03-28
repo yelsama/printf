@@ -62,8 +62,11 @@ int	on_action(int i, char *argdefiner, va_list argu)
 		n = _print_octal(va_arg(argu, int));
 	else if (argdefiner[i] == 'b')
 		n = _print_binary(va_arg(argu, int));
+<<<<<<< Updated upstream
 	else if (argdefiner[i] == 'p')
 		n = get_print_pointer((unsigned long)va_arg(argu, void *));
+=======
+>>>>>>> Stashed changes
 	return (n);
 }
 

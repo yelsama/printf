@@ -13,6 +13,9 @@ int		_print_binary(unsigned int val);
 int		_print_octal(unsigned int val);
 int		_printhex(unsigned int val, char *base);
 int		_putunsinint_fd(unsigned int u, int fd);
+<<<<<<< Updated upstream
 int		_print_pointer(unsigned long val, char *base);
 
+======
+>>>>>>> Stashed changes
 #endif
