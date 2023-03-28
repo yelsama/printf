@@ -27,6 +27,7 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 {
 	void	*p;
 	int		n;
+	char	r[] = "%r";
 
 	n = 0;
 	if (argdefiner[i] == 'p')
@@ -42,11 +43,13 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'r')
 	{
 		if (!argu)
-			return (_puts("%r"));
-		printf("got here\n");
+			return (_puts(r));
 		p = (char *)va_arg(argu, int *);
 		if (!p)
+		{
 			n = _puts("(null)");
+			printf("got here\n");
+		}
 		else
 		{
 			rev_string(p);
