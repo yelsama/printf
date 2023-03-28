@@ -27,7 +27,6 @@ int  rev_string(char *s)
 			*(str + j) = *(str + (j - 1));
 			*(str + (j - 1)) = temp;
 		}
-	
 	}
 	return (count);
 }
