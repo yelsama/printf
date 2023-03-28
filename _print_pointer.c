@@ -10,6 +10,7 @@ int	_print_pointer(unsigned long val, char *base)
 {
 	int	n;
 
+	n = 0;
 	if (val > 15)
 		n += _print_pointer(val / 16, base);
 	n += write(1, &base[val % 16], 1);
