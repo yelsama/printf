@@ -11,7 +11,7 @@ int main(void)
     // unsigned int ui;
     // void *addr;
     // char *s1;
-    char str[] = "hellow world";
+    char str[] = "ABCDEFGZYX abcdefgzyx";
 
    n1 =  _printf("%R\n", str);
    n2 = printf("%R\n", str);
