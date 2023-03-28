@@ -41,9 +41,11 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	}
 	else if (argdefiner[i] == 'r')
 	{
+		if (!argu)
+			n = _pus("%r");
 		p = (char *)va_arg(argu, int *);
 		if (!p)
-			return (n);
+			n = _puts("(null)");
 		else
 		{
 			rev_string(p);
@@ -68,7 +70,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	char	c;
 
 	n = 0;
-	if (!argu)
+	if (!argu && argdefiner[i] != 'r')
 		return (1);
 	if (argdefiner[i] == 's')
 	{
