@@ -27,11 +27,11 @@ int main(void)
    printf("Cmpare mine: %d    original: %d\n", n1, n2);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
-    n1 = _printf("%s\n", s1);
-    n2 = printf("%s\n", s1);
-    n1 = _printf("s%");
-    n2 = printf("s%");
-   printf("Cmpare mine: %d    original: %d\n", n1, n2);
+    // n1 = _printf("%s\n", s1);
+    // n2 = printf("%s\n", s1);
+    // n1 = _printf("s%");
+    // n2 = printf("s%");
+//    printf("Cmpare mine: %d    original: %d\n", n1, n2);
    n1=  _printf("Address:[%p]\n", addr);
    n2 = printf("Address:[%p]\n", addr);
     printf("after pointer\n");
