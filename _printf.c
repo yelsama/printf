@@ -1,6 +1,20 @@
 #include "main.h"
 
 /**
+ * get_print_pointer - check the code
+ * @p: pointer value
+ * Return: number of printed chars
+ */
+int	get_print_pointer(unsigned long p)
+{
+	int	n;
+
+	n = _puts("0x");
+	n += _print_pointer(p, "0123456789abcdef");
+	return (n);
+}
+
+/**
  * on_action - check the code
  * @i: index of where thie printing is
  * @argdefiner: flag for type to print
@@ -47,10 +61,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'b')
 		n = _print_binary(va_arg(argu, int));
 	else if (argdefiner[i] == 'p')
-	{
-		n = _puts("0x");
-		n+= _print_pointer((unsigned long)va_arg(argu, void *), "0123456789abcdef");
-	}
+		n = get_print_pointer((unsigned long)va_arg(argu, void *));
 	return (n);
 }
 
