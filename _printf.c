@@ -74,6 +74,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	n = 0;
 	if (!argu && argdefiner[i] != 'r')
 		return (1);
+	printf("got to this\n");
 	if (!argu)
 		return (_puts("%r"));
 	if (argdefiner[i] == 's')
