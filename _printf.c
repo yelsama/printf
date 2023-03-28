@@ -46,6 +46,11 @@ int	on_action(int i, char *argdefiner, va_list argu)
 		n = _print_octal(va_arg(argu, int));
 	else if (argdefiner[i] == 'b')
 		n = _print_binary(va_arg(argu, int));
+	else if (argdefiner[i] == 'p')
+	{
+		n = _puts("0x");
+		n+= _print_pointer((unsigned long)va_arg(argu, void *), "0123456789abcdef");
+	}
 	return (n);
 }
 
@@ -65,7 +70,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdibuoxX%";
+	cases = "csdibuoxXp%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
