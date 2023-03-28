@@ -17,6 +17,32 @@ int	get_print_pointer(unsigned long p)
 }
 
 /**
+ * on_action2 - check the code
+ * @i: index of where thie printing is
+ * @argdefiner: flag for type to print
+ * @argu: argument of va list for the flag
+ * Return: number of printed chars
+ */
+int	on_action2(int i, char *argdefiner, va_list argu)
+{
+	void	*p;
+	int		n;
+
+	n = 0;
+	if (argdefiner[i] == 'p')
+		n = get_print_pointer((unsigned long)va_arg(argu, void *));
+	else if (argdefiner[i] == 'R')
+	{
+		p = (char *)va_arg(argu, int *);
+		if (!p)
+			n = _puts("(null)");
+		else
+			n = print_rot13string(p);
+	}
+	return (n);
+}
+
+/**
  * on_action - check the code
  * @i: index of where thie printing is
  * @argdefiner: flag for type to print
@@ -62,16 +88,8 @@ int	on_action(int i, char *argdefiner, va_list argu)
 		n = _print_octal(va_arg(argu, int));
 	else if (argdefiner[i] == 'b')
 		n = _print_binary(va_arg(argu, int));
-	else if (argdefiner[i] == 'p')
-		n = get_print_pointer((unsigned long)va_arg(argu, void *));
-	else if (argdefiner[i] == 'R')
-	{
-		p = (char *)va_arg(argu, int *);
-		if (!p)
-			n = _puts("(null)");
-		else
-			n = print_rot13string(p);
-	}
+	else
+		n = on_action2(i, argdefiner, argu);
 	return (n);
 }
 
