@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * print_rot13string - prints the rot13'ed string.
+ * @str: a string
+ * Return: printed number.
+ */
 int print_rot13string(char *str)
 {
 	char x;
