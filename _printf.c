@@ -70,7 +70,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
                     if (!p)
                         n = _puts("(null)");
                     else
-                        n = print_rot13str(p);
+                        n = print_rot13string(p);
 		}
 	return (n);
 }
