@@ -48,6 +48,7 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 		{
 			rev_string(p);
 			n = _puts(p);
+			rev_string(p);
 		}
 	}
 	return (n);
