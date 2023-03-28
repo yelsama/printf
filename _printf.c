@@ -9,6 +9,8 @@ int	get_print_pointer(unsigned long p)
 {
 	int	n;
 
+	if (p == 0)
+		return (_puts("(nil)"));
 	n = _puts("0x");
 	n += _print_pointer(p, "0123456789abcdef");
 	return (n);
