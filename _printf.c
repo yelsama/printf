@@ -58,6 +58,7 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	n = 0;
 	if (!argu && argdefiner[i] != 'r')
 		return (1);
+	printf("%r");
 	if (argdefiner[i] == 'r')
 	{
 		return (0);
