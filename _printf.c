@@ -43,7 +43,7 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	{
 		p = (char *)va_arg(argu, int *);
 		if (!p)
-			n = _puts("%r");
+			return (n);
 		else
 		{
 			rev_string(p);
