@@ -10,8 +10,9 @@ int main(void)
     // unsigned int ui;
     // void *addr;
     int n1, n2;
+    char str[] = "hellwo";
   
-   n1 = _printf("Unknown:[%r]\n");
+   n1 = _printf("Unknown:[%r]\n", str);
     n2 = printf("Unknown:[%r]\n");
    printf("Cmpare ours: %d    original: %d\n", n1, n2);
 //     len = _printf("Let's try to printf a simple sentence.\n");
