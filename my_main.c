@@ -13,7 +13,7 @@ int main(void)
   
    n1 = _printf("Unknown:[%r]\n");
     n2 = printf("Unknown:[%r]\n");
-   printf("Cmpare mine: %d    original: %d\n", len, len2);
+   printf("Cmpare ours: %d    original: %d\n", n1, n2);
 //     len = _printf("Let's try to printf a simple sentence.\n");
 //     len2 = printf("Let's try to printf a simple sentence.\n");
 //     ui = (unsigned int)INT_MAX + 1024;
