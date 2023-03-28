@@ -4,10 +4,9 @@
  * rev_string - reverse a string
  * @s: The string to be reversed
  *
- * Return: nothing.
+ * Return: int.
  */
-
-void rev_string(char *s)
+int  rev_string(char *s)
 {
 	int count = 0, i, j;
 	char *str, temp;
@@ -28,5 +27,7 @@ void rev_string(char *s)
 			*(str + j) = *(str + (j - 1));
 			*(str + (j - 1)) = temp;
 		}
+	
 	}
+	return (count);
 }
