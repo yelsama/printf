@@ -35,9 +35,10 @@ int main(void)
     n1 = _printf("s%");
     n2 = printf("s%");
    printf("Cmpare mine: %d    original: %d\n", n1, n2);
-    _printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
+   n1=  _printf("Address:[%p]\n", addr);
+   n2 = printf("Address:[%p]\n", addr);
     printf("after pointer\n");
+    printf("Cmpare mine: %d    original: %d\n", n1, n2);
    len = _printf("Percent:[%%]\n");
    len2 = printf("Percent:[%%]\n");
    printf("Cmpare mine: %d    original: %d\n", len, len2);
