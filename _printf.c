@@ -56,28 +56,8 @@ int	on_action(int i, char *argdefiner, va_list argu)
 	char	c;
 
 	n = 0;
-	if (!argu && argdefiner[i] != 'r')
+	if (!argu)
 		return (1);
-	if (argdefiner[i] == 'r')
-	{
-		printf("%r");
-		return (0);
-		p = (char *)va_arg(argu, int *);
-		if (!argu && p)
-			return (0);
-		if (!p)
-		{
-			n = _puts("(null)");
-		}
-		else
-		{
-			rev_string(p);
-			n = _puts(p);
-		}
-	}
-	return (2);
-	// else if (!argu)
-	// 	return (_puts("%r"));
 	if (argdefiner[i] == 's')
 	{
 		p = (char *)va_arg(argu, int *);
@@ -129,7 +109,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdibuoxXpRr%";
+	cases = "csdibuoxXp%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
