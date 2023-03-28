@@ -125,7 +125,7 @@ int	_printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	p = (char *)format;
-	cases = "csdibuoxXpRr%";
+	cases = "csdibuoxXpR%";
 	i = -1;
 	n = 0;
 	va_start(atached_arg, format);
