@@ -43,12 +43,12 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'r')
 	{
 		if (!argu)
-			return (_puts(r));
+			return (1);
 		p = (char *)va_arg(argu, int *);
 		if (!p)
 		{
 			n = _puts("(null)");
-			printf("got here\n");
+			// printf("got here\n");
 		}
 		else
 		{
