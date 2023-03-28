@@ -42,7 +42,7 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'r')
 	{
 		p = (char *)va_arg(argu, int *);
-		if (!argu || !p)
+		if (!argu && p)
 			return (0);
 		if (!p)
 		{
