@@ -19,7 +19,7 @@ int print_rev(char *s)
 	}
 
 	for (count--; count >= 0; count--)
-		write(1,&s[count],1);
+		write(1, &s[count], 1);
 
-	return( count);
+	return (count);
 }

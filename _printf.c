@@ -43,10 +43,10 @@ int	on_action2(int i, char *argdefiner, va_list argu)
 	else if (argdefiner[i] == 'r')
 	{
 		p = (char *)va_arg(argu, int *);
-                if (!p)
-                        n = _puts("(null)");
-                else
-                        n = print_rev(p);
+		if (!p)
+			n = _puts("(null)");
+		else
+			n = print_rev(p);
 	}
 	return (n);
 }
