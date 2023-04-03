@@ -9,7 +9,7 @@
 
 int print_rev(char *s)
 {
-	int count = 0;
+	int n, count = 0;
 
 	while (count >= 0)
 	{
@@ -19,7 +19,10 @@ int print_rev(char *s)
 	}
 
 	for (count--; count >= 0; count--)
-		_puts(&s[count]);
+	{	
+		write(1, &s[count], 1);
+		n++;
+	}
 
-	return (count);
+	return (n);
 }
