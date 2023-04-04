@@ -15,5 +15,6 @@ int		_putunsinint_fd(unsigned int u, int fd);
 int		_print_pointer(unsigned long val, char *base);
 int		print_rot13string(char *str);
 int             print_rev(char *s);
+int             non_print(char *s);
 
 #endif
